@@ -1,8 +1,13 @@
 <h2>Products</h2>
 
-<div *ngFor="let product of products">
-  <a href="#" [title]="product.name+' details'">
-  <h3>{{product.name}}</h3>
+<div *ngFor="let product of products; index as ProductId" >
+
+     
+    <a [title]="product.name+' details'" [routerLink]="['/products', productId]">
+   <h3>{{product.name}}
+   </h3>
+ 
+  
   <h4>{{product.price}}</h4>
   <div> 
   <app-product-alerts [product]="product" (notify)='onNotify()'></app-product-alerts> 
